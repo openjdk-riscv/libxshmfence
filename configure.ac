@@ -91,7 +91,7 @@ AC_SUBST([XPROTO_CFLAGS])
 
 CFLAGS="$CFLAGS $XPROTO_CFLAGS"
 
-AC_CHECK_FUNCS(memfd_create)
+AC_CHECK_FUNCS(memfd_create mkostemp)
 
 AC_CHECK_DECLS([__NR_memfd_create], [], [], [[#include <asm/unistd.h>]])
 
