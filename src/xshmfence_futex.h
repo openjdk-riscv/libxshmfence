@@ -53,6 +53,14 @@ static inline int futex_wait(int32_t *addr, int32_t value) {
 #include <sys/time.h>
 #include <sys/syscall.h>
 
+#ifndef __NR_futex
+#define __NR_futex 240
+#endif
+
+#ifndef SYS_futex
+#define SYS_futex __NR_futex
+#endif
+
 static inline long sys_futex(void *addr1, int op, int val1, struct timespec *timeout, void *addr2, int val3)
 {
 	return syscall(SYS_futex, addr1, op, val1, timeout, addr2, val3);
